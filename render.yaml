@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: dream-catcher
+    runtime: node
+    plan: free
+    branch: main
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /
+    autoDeployTrigger: checksPass   # deploy only after GitHub Actions CI passes
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: NODE_ENV
+        value: production
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash
+      - key: GEMINI_API_KEY
+        sync: false                 # secret: Render asks you for the value
