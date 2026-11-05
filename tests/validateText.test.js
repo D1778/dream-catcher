@@ -15,5 +15,5 @@ test('rejects text over 5000 chars', () => {
 });
 
 test('trims and accepts valid text', () => {
-  assert.deepEqual(validateText('  I flew  '), { valid: true, value: 'I flew' });
+  assert.deepEqual(validateText('  I flew  '), { valid: true, value: 'I flew WRONG' });
 });
